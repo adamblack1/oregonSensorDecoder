@@ -4,12 +4,12 @@ test( "hello test", function() {
 
 test("Test getOregonWords - data at end", function() {
 	var data = getOregonWords(0xFFFFFFF1);
-	equal(data[15], 1);
+	equal(data[7], 1);
 });
 
 test("Test getOregonWords - length", function() {
 	var data = getOregonWords(0x12345678);
-	equal(data.length, 16);
+	equal(data.length, 8);
 });
 
 //TODO: test padding e.g. data / that other things have not shifted
