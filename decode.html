@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Convert Data</title>
+</head>
+<body>
+	<H1> Oregon Scientific Decoder</h1>
+	<script src="oregonScientificDecoder.js"></script>
+
+	<form>
+	<table>
+		<tr>
+			<td>Raw reading</td>
+			<td><input type="text" maxlength="16" onchange="extractInformationFromReading(this)" onkeyup=extractInformationFromReading(this)></td>
+		</tr>
+		<tr>
+			<td>Temperature:</td>
+			<td><input type="text" disabled id="temperature"/> celsius</td>
+		</tr>
+		<tr>
+		</tr>
+	</table>
+	</form>
+	<script language="javascript">
+		function extractInformationFromReading(inputField) {
+			var rawValue = inputField.value;
+			var reading = OregonReading(rawValue);
+
+			document.getElementById("temperature").value = reading.temperature;
+
+		}
+	</script>
+</body>
+</html>
