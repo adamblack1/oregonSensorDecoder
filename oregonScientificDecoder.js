@@ -1,0 +1,3 @@
+function getResult() {
+	return true;
+}
