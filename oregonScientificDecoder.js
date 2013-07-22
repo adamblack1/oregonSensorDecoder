@@ -11,6 +11,7 @@ function OregonReading(rawData) {
 
 	var dataAsWords = getOregonWords(rawData);
 	reading.temperature = getOregonTemperature(dataAsWords);
+	//reading.channel =
 
 	return reading;
 }
