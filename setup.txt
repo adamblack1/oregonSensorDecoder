@@ -1,1 +1,2 @@
 npm install qunitjs
+npm install qunit-assert-close
