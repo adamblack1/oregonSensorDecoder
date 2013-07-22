@@ -12,24 +12,35 @@
 	<table>
 		<tr>
 			<td>Raw reading</td>
-			<td><input type="text" maxlength="16" onchange="extractInformationFromReading(this)" onkeyup=extractInformationFromReading(this)></td>
+			<td><input type="text" maxlength="24" onchange="extractInformationFromReading(this)" onkeyup=extractInformationFromReading(this)></td>
 		</tr>
 		<tr>
 			<td>Temperature:</td>
 			<td><input type="text" disabled id="temperature"/> celsius</td>
 		</tr>
 		<tr>
+			<td>Channel:</td>
+			<td><input type="text" disabled id="channel"/></td>
 		</tr>
 	</table>
 	</form>
 	<script language="javascript">
 		function extractInformationFromReading(inputField) {
-			var rawValue = inputField.value;
+			var rawValue = getValueWithoutNinjaBlocksPrefix(inputField.value);
 			var reading = OregonReading(rawValue);
 
 			document.getElementById("temperature").value = reading.temperature;
+			document.getElementById("channel").value = reading.channel;
 
+		}
+
+		function getValueWithoutNinjaBlocksPrefix(value) {
+			if (value.length > 16) {
+				value = value.substring(8);
+			}
+			return value;
 		}
 	</script>
 </body>
 </html>
+

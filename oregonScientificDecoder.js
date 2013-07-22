@@ -10,14 +10,14 @@ function OregonReading(rawData) {
 	var reading = new Object();
 
 	var dataAsWords = getOregonWords(rawData);
-	reading.temperature = getOregonTemperature(dataAsWords);
-	//reading.channel =
+	reading.temperature = getOregonSensorTemperature(dataAsWords);
+	reading.channel = getOregonSensorChannel(dataAsWords);
 
 	return reading;
 }
 
 //TODO: add support for handling negative temperatures
-function getOregonTemperature(dataAsWords) {
+function getOregonSensorTemperature(dataAsWords) {
 	var tens = dataAsWords[10];
 	var ones = dataAsWords[11];
 	var tenths = dataAsWords[8];
@@ -25,6 +25,11 @@ function getOregonTemperature(dataAsWords) {
 	return tens * 10 + ones + tenths / 10;
 }
 
+function getOregonSensorChannel(dataAsWords) {
+	var rawValue = dataAsWords[4];
+	var asBinaryString = rawValue.toString(2);
+	return asBinaryString.length;
+}
 
 function getOregonWords(input) {
 	var wordsAsAString = input.toString(WORD_SIZE);
