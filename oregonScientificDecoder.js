@@ -1,6 +1,3 @@
-
-//function createReading // http://www.w3schools.com/js/js_obj_intro.asp
-
 var WORD_SIZE_IN_BITS = 4;
 var WORD_SIZE = Math.pow(2, WORD_SIZE_IN_BITS);
 var MESSAGE_LENGTH_IN_WORDS = 8;
@@ -52,8 +49,6 @@ function getWordsFromStings(input) {
 	for (var i = 0; i < input.length; i++) {
 		var temp = input[i];
 		result[i] = parseInt(temp, WORD_SIZE);
-
-		//document.write(i+": "+temp+" -> "+result[i]+"<br />");
 	}
 
 	return result;
