@@ -13,7 +13,6 @@ function OregonReading(rawData) {
 	return reading;
 }
 
-//TODO: add support for handling negative temperatures
 function getOregonSensorTemperature(dataAsWords) { //TODO: change this to use string operations... Make locations relative to temperature data in the data..
 	var isTemperatureNegative = dataAsWords[13] & 8;
 	var tens = dataAsWords[10];
