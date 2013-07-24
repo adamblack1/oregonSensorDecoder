@@ -1,0 +1,10 @@
+Words	Description	Encoding
+0-3	Sensor Type
+4:	Channel	2^(channel - 1) e.g. channels 1, 2, 3 are represented as 1, 2, 4
+5:	?
+6-7: ID	(changes each time sensor is reset)
+8-9: Tenths and hundreths	BCD
+10-11: Tens and ones	BCD
+12: ?
+13: Sign and other?	8 = negative, 0 = positive
+14-15 ?
