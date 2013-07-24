@@ -14,12 +14,22 @@ function OregonReading(rawData) {
 }
 
 //TODO: add support for handling negative temperatures
-function getOregonSensorTemperature(dataAsWords) {
+function getOregonSensorTemperature(dataAsWords) { //TODO: change this to use string operations... Make locations relative to temperature data in the data..
+	var isTemperatureNegative = dataAsWords[13] & 8;
 	var tens = dataAsWords[10];
 	var ones = dataAsWords[11];
 	var tenths = dataAsWords[8];
 
-	return tens * 10 + ones + tenths / 10;
+	var magnitude = tens * 10 + ones + tenths / 10;
+
+	var result;
+	if (isTemperatureNegative) {
+		result = magnitude * -1;
+	} else {
+		result = magnitude;
+	}
+
+	return result;
 }
 
 function getOregonSensorChannel(dataAsWords) {
